@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8" />
+    <header>
+
+            {% block stylesheets %}
+               <link rel="stylesheet" href="{{ asset('bundles/epsinews/dist/css/bootstrap.min.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('bundles/epsinews/dist/css/bootstrap-theme.min.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('bundles/epsinews/css/homepage.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('bundles/epsinews/css/style.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('Resources/public/css/style.css') }}" type="text/css" />
+            {% endblock %}
+
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        </header>
+
+    <body>
+
+    {% block header %}
+
+            <h4>
+                <center>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Vous êtes sur le site de News de l'EPSI </strong>
+                    </div>
+
+
+                </center>
+            </h4>
+    <center>
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role=""><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/login"><button type="button" class="btn btn-default">Login</button></a></div>
+                <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/register"><button type="button" class="btn btn-default">Créer un compte</button></a></div>
+                <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/logout"><button type="button" class="btn btn-default">Deconnexion</button></a></div>
+        </div>
+        {% if is_granted("ROLE_USER") %}
+            <div class="alert alert-success" role="alert">
+                <strong>Bienvenue {{ app.user.username }},  nous sommes le {{ "now"|date("m/d/Y") }}.</strong>
+            </div>
+        {% endif %}
+        {% image '@EPSINewsBundle/Resources/public/images/news.jpg' %}
+        <center> <img src ="{{ asset_url }}"/></center>
+        {% endimage %}
+        </br>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/news/index"><button type="button" class="btn btn-default">Accueil</button></a></div>
+                <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/news/getnews"><button type="button" class="btn btn-default">News (read only)</button></a></div>
+                    <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/news/modifynews"><button type="button" class="btn btn-default">News (update, delete)</button></a></div>
+                        <div class="btn-group" role="group"><a href="http://localhost:75/EpsiProjetNews/web/app_dev.php/news/insertnews"><button type="button" class="btn btn-default">News (create only)</button></a></div>
+        </div>
+    </center>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+
+    <div id ="div1">
+        <center>
+
+        </br>
+
+        {% block footer %}
+        <div id ="div2">
+            <h1></h1>
+            </br>
+            {% block image %}
+                {% image '@EPSINewsBundle/Resources/public/images/epsi.png' %}
+                <img src ="{{ asset_url }}"/>
+                {% endimage %}
+                {% image '@EPSINewsBundle/Resources/public/images/symfony.png' %}
+                <img src ="{{ asset_url }}"/>
+                {% endimage %}
+            {% endblock %}
+            {% endblock %}
+            </br> Copyright L'HOSTIS Jean-Pierre 2014
+        </div>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Page actuelle : Détail des News</strong>
+    </div>
+    </br>
+    <style>
+    p {width: 90%;}
+    </style>
+    <div>
+        <center>
+    <p class="bg-primary">
+                    {{ news.titre }}
+    </p>
+     <p class="bg-info">
+                    {{ news.contenu }}
+               </p>
+     <p class="bg-success">
+          Edité le  {{ news.date }}
+       par {{ news.user.username }}
+         Dans {{ news.categorie.nomCategorie }}
+
+</br>
+                 Tags: {% for t in news.tag %} {{t.intitule}} {% endfor %}
+
+        </center>
+    </div>
+{% endblock %}

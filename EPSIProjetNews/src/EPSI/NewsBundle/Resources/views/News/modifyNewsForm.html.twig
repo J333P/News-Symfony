@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="alert alert-danger" role="alert">
+    <strong>Page actuelle : Insérer News</strong>
+</div>
+</br>
+    {% if is_granted("ROLE_USER") %}
+<div class="btn-group" role="group"><a href="{{ path('epsi_news_insertcategorie') }}"><button type="button" class="btn btn-default">Ajouter une Catégorie</a></button>
+
+    </br>
+
+    <div class="text-center">
+            <form action="" method="post">
+                <input hidden value="{{app.user.id}}" id="id_user" name="id_user">
+                <center>
+                {{form (form) }}
+                </center>
+            </form>
+        </div>
+    {% else %}
+        <div class="text-center">
+            <h2>Vous devez être connecté pour pouvoir modifier une news</h2>
+        </div>
+    {% endif %}
+{% endblock %}

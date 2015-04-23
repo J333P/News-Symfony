@@ -1,0 +1,34 @@
+epsi_news_homepage:
+    path:     /index
+    defaults: { _controller: EPSINewsBundle:Default:index }
+    
+epsi_news_getnews:
+    path:   /getnews
+    defaults:   { _controller: EPSINewsBundle:News:get }
+    
+epsi_news_modifynews:
+    path:   /modifynews
+    defaults:   { _controller: EPSINewsBundle:News:modify }
+
+epsi_news_modifynews_form:
+    path:   /modifynews/{id}
+    defaults:   { _controller:  EPSINewsBundle:News:modifyNews }
+
+epsi_news_insertnews:
+    path:   /insertnews
+    defaults:   { _controller:  EPSINewsBundle:News:insert }    
+    
+epsi_news_otherpage:
+    path:   /other/{name}
+    defaults: { _controller: EPSINewsBundle:Other:show }
+
+epsi_news_getnews_detail:
+    path:   /getnews/{id}
+    defaults:   { _controller:  EPSINewsBundle:News:detail }
+
+epsi_news_insertcategorie:
+    path:   /insertcategorie
+    defaults:   { _controller:  EPSINewsBundle:Categorie:insert }
+    
+
+

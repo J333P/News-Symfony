@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+        <div class="alert alert-danger" role="alert">
+        <strong>Page actuelle : Insérer des News</strong>
+    </div>
+    </br>
+    {% if is_granted("ROLE_USER") %}
+        <div class="text-center">
+            <button type="button" class="btn btn-default"><a href="{{ path('epsi_news_insertcategorie') }}">Ajouter une Catégorie</a></button>
+
+            </br>
+            <form action="" method="post">
+                <input hidden value="{{app.user.id}}" id="id_user" name="id_user">
+                {{form (form) }}
+                <span><i>(*): Si vous voulez ajouter plusieurs tags, séparez les par des "/"</i></span>
+            </form>
+        </div>
+    {% else %}
+        <div class="text-center">
+            <h2>Vous devez être connecté pour pouvoir créer une news</h2>
+        </div>
+    {% endif %}
+{% endblock %}

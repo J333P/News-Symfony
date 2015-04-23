@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    {{parent()}}
+    {% stylesheets'@EPSINewsBundle/Resources/public/css/homepage.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+    {% include "EPSINewsBundle:Default:LayoutNews.html.twig" %}
+{% endblock %}

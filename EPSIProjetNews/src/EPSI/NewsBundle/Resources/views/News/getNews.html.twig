@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+        <div class="alert alert-danger" role="alert">
+        <strong>Page actuelle : Voir les News</strong>
+    </div>
+    </br>
+        <style>
+    p {width: 90%;}
+    </style>
+    <center>
+    {% for news in newstab %}
+        <div>
+            <p class="bg-info">
+                <a href="{{ path('epsi_news_getnews_detail', {'id': news.id}) }}" target="_blank">{{ news.titre }}</a>
+            </p>
+            <p class="bg-warning">
+                {{ news.contenu }}
+            </p>
+        </div>
+    </br>
+    {% endfor %}
+    </center>
+{% endblock %}

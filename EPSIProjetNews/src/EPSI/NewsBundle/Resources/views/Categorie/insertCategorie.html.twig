@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% if is_granted("ROLE_USER") %}
+        <div class="text-center">
+            <center>
+            <form action="" method="post">
+                {{form (form) }}
+            </form>
+            </center>
+        </div>
+    {% else %}
+        <div class="text-center">
+            <h2>Vous devez être connecté pour pouvoir créer une catégorie</h2>
+        </div>
+    {% endif %}
+{% endblock %}

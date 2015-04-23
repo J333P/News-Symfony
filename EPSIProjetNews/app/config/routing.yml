@@ -1,0 +1,10 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+epsi_user:
+    resource: "@EPSIUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+epsi_news:
+    resource: "@EPSINewsBundle/Resources/config/routing.yml"
+    prefix:     /news
